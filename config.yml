@@ -120,8 +120,8 @@ Training:
 Models:        
     CGCNN_demo:
         model: CGCNN
-        dim1: 100
-        dim2: 150
+        dim1: 64
+        dim2: 64
         pre_fc_count: 1
         gc_count: 4
         post_fc_count: 3
@@ -137,7 +137,8 @@ Models:
         optimizer: "AdamW"
         optimizer_args: {}
         scheduler: "ReduceLROnPlateau"
-        scheduler_args: {"mode":"min", "factor":0.8, "patience":10, "min_lr":0.00001, "threshold":0.0002}  
+        scheduler_args: {"mode":"min", "factor":0.8, "patience":10, "min_lr":0.00001, "threshold":0.0002}
+        attention_heads: 4
     SUPER_CGCNN_demo:
         model: SUPER_CGCNN
         dim1: 100
