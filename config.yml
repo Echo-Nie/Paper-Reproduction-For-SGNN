@@ -9,7 +9,7 @@ Job:
         save_model: "True"
         model_path: "my_model.pth"
         write_output: "True"
-        parallel: "True"
+        parallel: "False"
         #seed=0 means random initalization
         seed: 0        
     Predict:
@@ -79,7 +79,7 @@ Processing:
     #Whether to use "inmemory" or "large" format for pytorch-geometric dataset. Reccomend inmemory unless the dataset is too large
     dataset_type: "inmemory"  
     #Path to data files
-    data_path: "/data" 
+    data_path: "./data/test_data/test_data"
     #Path to target file within data_path
     target_path: "targets.csv"
     #Method of obtaining atom idctionary: available:(provided, default, blank, generated)
