@@ -1,0 +1,21 @@
+    CGCNN_demo:
+        model: CGCNN
+        dim1: 64
+        dim2: 64
+        pre_fc_count: 1
+        gc_count: 4
+        post_fc_count: 3
+        pool: "global_mean_pool"
+        pool_order: "early"
+        batch_norm: "True"
+        batch_track_stats: "True"
+        act: "relu"
+        dropout_rate: 0.0
+        epochs: 250
+        lr: 0.002
+        batch_size: 100
+        optimizer: "AdamW"
+        optimizer_args: {}
+        scheduler: "ReduceLROnPlateau"
+        scheduler_args: {"mode":"min", "factor":0.8, "patience":10, "min_lr":0.00001, "threshold":0.0002}
+        attention_heads: 4
