@@ -1,10 +1,8 @@
 import os
 import argparse
 import time
-import csv
 import sys
 import json
-import random
 import numpy as np
 import pprint
 import yaml
@@ -12,9 +10,7 @@ import yaml
 import torch
 import torch.multiprocessing as mp
 
-import ray
 from ray import tune
-
 from matdeeplearn import models, process, training
 
 ################################################################################
