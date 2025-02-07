@@ -198,7 +198,7 @@ Scalable：
 - 与 GATGNN 相比，DeeperGATGNN 在某些任务上取得了显著的性能提升，例如 Pt 团簇预测任务中提升了 54.03%。
 - Deeper结合GATGNN尽管层数变多，但是参数量依旧较少。其他模型的话都是超过500w参数量，DeeperGATGNN只有不到180w
 
-![Table2](imagesFormd\table2.png)
+![Table2](imagesFormd/table2.png)
 
 1. **模型评估与比较：** 所有模型在相同的代码框架、数据集和超参数设置下进行训练。之前的基准研究中，不同模型在不同数据集上的表现各异，MEGNet 在所有数据集中表现不佳。
 
@@ -224,7 +224,7 @@ Scalable：
 
    MEGNet 和 DeeperMEGNet，当 GC 层数接近 30 时，它们的参数数量接近 600 万个，导致它们的性能崩溃
 
-   ![Table2](imagesFormd\MAEcomparison.png)
+   ![Table2](imagesFormd/MAEcomparison.png)
 
 
 
@@ -237,13 +237,13 @@ Scalable：
 5. **graph convolution layers：**即使有50层GC，我们模型的性能也没有太大下降：30层和50层GC的结果非常接近。因此，如果我们的模型可以通过35层GC达到SOTA结果，那么如果我们在这个数据集上继续增加GC层数（>50层GC）并增加更多训练样本，我们可能会取得更好的结果。但由于计算负担，我们没有进一步深入。
 6. 五折交叉
 
-![image-20250207184423257](imagesFormd\fig4.png)
+![image-20250207184423257](imagesFormd/fig4.png)
 
 
 
 # 5 - Scalability comparison
 
-![image-20250207184445350](imagesFormd\fig7.png)
+![image-20250207184445350](imagesFormd/fig7.png)
 
 做了浅层模型和深层模型的对比。（是否加SC和DGN）
 
@@ -265,7 +265,7 @@ pt数据集上，我们的模型在10层GC之后直到达到35层GC时性能没�
 
 我们选择了 Bulk Crystal Formation Energy和 Alloy Surface Adsorption Energy数据集进行实验。结果如下：
 
-![image-20250207194642795](imagesFormd\table4.png)
+![image-20250207194642795](imagesFormd/table4.png)
 
 
 
@@ -288,7 +288,7 @@ pt数据集上，我们的模型在10层GC之后直到达到35层GC时性能没�
 
 研究发现**现有的 GNN 模型倾向于使用不同的超参数集在不同的数据集上实现最佳性能**。这种昂贵的超参数搜索过程，使作者仅使用 200 个 epoch 进行评估。然而，在图 2 中的分析表明，他们的网络都训练不足，直到 500 个 epoch 才会停止。
 
-![image-20250207195935501](imagesFormd\前人研究并没有收敛.png)
+![image-20250207195935501](imagesFormd/前人研究并没有收敛.png)
 
 这导致他们严重低估了所有报告结果的 GNN 性能。例如，对于合金表面数据集，CGCNN 在 250 个 epoch 的训练中的平均绝对误差（MAE）为 0.06 eV，比 500 个 epoch 训练的结果（0.042 eV）高出 40%。由于在巨大的超参数空间中运行更多 epoch 是**不可行的**，因此更希望使用能够以默认或少量参数调整实现更稳定结果的 GNN 模型。例如，我们的 DeeperGATGNN 模型在五个数据集上实现了 SOTA 结果，使用相同的架构，**只是 GC 层数不同**。
 
@@ -382,7 +382,7 @@ $$
 
 **DeeperGATGNN**：跳跃连接在每一层之间进行，将前一层的输出直接传递到当前层，用于解决图数据中的过平滑问题，并提高模型的表示能力。
 
-![image-20250207202018968](imagesFormd\fs3.png)
+![image-20250207202018968](imagesFormd/fs3.png)
 
 ResNet 
 
@@ -416,7 +416,7 @@ DeeperGATGNN
 
 为了评估模型的性能，我们使用平均绝对误差（MAE），这是材料属性预测问题的标准评估标准，也是Fung等人基准研究中的主要评估标准。根据具体实验，我们使用5折交叉验证和留出测试进行性能评估。基线模型的参数在Fung等人的补充信息中指定。我们的DeeperGATGNN模型的超参数也在注释S2中提供。
 
-![image-20250207202519459](imagesFormd\fs2.png)
+![image-20250207202519459](imagesFormd/fs2.png)
 
 
 
