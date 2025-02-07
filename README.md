@@ -224,7 +224,7 @@ Scalable：
 
    MEGNet 和 DeeperMEGNet，当 GC 层数接近 30 时，它们的参数数量接近 600 万个，导致它们的性能崩溃
 
-   ![Table2](imagesFormd/MAEcomparison.png)
+   ![MAE](imagesFormd/MAEComparison.png)
 
 
 
