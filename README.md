@@ -57,7 +57,7 @@ Scalable：
 
 # 1 - INTRODUCTION
 
-![img](imagesFormd\ModelStructure.png)
+![img](imagesFormd/ModelStructure.png)
 
 输入
 
