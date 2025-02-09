@@ -26,7 +26,7 @@ Replace the ```${TORCH}``` with your PyTorch version and ```${CUDA}``` with your
 pip install -r requirements.txt
 ```
 
-Requirements are as follows
+Requirements are as follows：
 
 ```bash
 ase==3.24.0
@@ -38,4 +38,50 @@ scikit-learn==1.5.2
 scipy==1.15.1
 tensorboard==2.17.1
 ```
+
+# Model Structure
+
+```bash
+Input Data (data.x, data.edge_index, data.edge_attr, data.batch, data.glob_feat)
+  |
+  |→ Preprocessing Layers (pre_lin_list_N, pre_lin_list_E)
+  ↓
+Node Features (out_x) + Edge Features (out_e)
+  |
+  |→ Graph Attention Layers (GATGNN_AGAT_LAYER × gc_count)
+  ↓
+Updated Node Features
+  |
+  |→ Global Attention Module
+  ↓
+Attention-Weighted Node Features
+  |
+  |→ Pooling Layer (global_add_pool, global_mean_pool, etc.)
+  ↓
+Pooled Features
+  |
+  |→ Postprocessing Layers (post_lin_list)
+  ↓
+Output Features
+  |
+  |→ Output Layer (lin_out)
+  ↓
+Predictions
+```
+
+**输入层**
+
+**预处理层**：通过全连接层将节点和边特征映射到更高维空间
+
+**图注意力层**：通过多头注意力机制和消息传递机制更新节点特征
+
+**全局注意力模块**：计算节点的全局注意力权重，并应用到节点特征上
+
+**池化层**：将节点特征聚合为图级特征
+
+**后处理层**：通过全连接层对图级特征进行进一步加工
+
+**输出层**
+
+
 
